@@ -1,0 +1,12 @@
+from math import floor
+from random import random
+
+def estimate_prob_same_birthday(n,m):
+   return sum([m>len(set([floor(random()*365) for _ in range(m)])) for _ in range(n)])/n *100
+
+yes=[]
+for x in range(30):
+  if(estimate_prob_same_birthday(20000,x)>50):
+    yes.append(x)
+print(yes)
+print(min(yes))
